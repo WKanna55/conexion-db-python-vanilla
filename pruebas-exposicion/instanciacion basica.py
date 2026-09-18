@@ -11,7 +11,7 @@ persona1 = Persona("Willian")
 
 # 3. Usamos el objeto creado
 print(persona1.nombre)
-# 4. Usamos metodo de clase
+# 4. Usamos met|odo de clase
 persona1.saludar()
 
 # --------------------------------------------
@@ -67,21 +67,21 @@ mi_cuenta = CuentaBancaria("Ana", 1000)
 
 # ---------------------------------------------
 # Abstraccion
-from abc import ABC, abstractmethod
+# from abc import ABC, abstractmethod
 
-class Dado(ABC):
-    @abstractmethod
-    def lanzar(self):
-        pass
-
-
-class DadoComun(Dado):
-    def lanzar(self):
-        print("El dado muestra una cara del 1 al 6")
+# class Dado(ABC):
+#     @abstractmethod
+#     def lanzar(self):
+#         pass
 
 
-dado = DadoComun()
-dado.lanzar()
+# class DadoComun(Dado):
+#     def lanzar(self):
+#         print("El dado muestra una cara del 1 al 6")
+
+
+# dado = DadoComun()
+# dado.lanzar()
 
 # Protocol
 # from typing import Protocol
@@ -89,3 +89,55 @@ dado.lanzar()
 # class ObjetoLanzable(Protocol):
 #     def lanzar(self):
 #         ...
+
+# ---------------------------------------------
+# Herencia
+# class Dado:
+#     def __init__(self, caras):
+#         self.caras = caras
+
+#     def lanzar(self):
+#         print(f"Lanzando dado de {self.caras} caras")
+
+
+# class DadoEspecial(Dado):
+#     def mostrar_premio(self):
+#         print("¡Ganaste un premio!")
+
+
+# dado = DadoEspecial(6)
+
+# dado.lanzar()
+# dado.mostrar_premio()
+
+# Herencia con super()
+# class Dado:
+#     def __init__(self, caras):
+#         self.caras = caras
+
+
+# class DadoEspecial(Dado):
+#     def __init__(self, caras, premio):
+#         super().__init__(caras)
+#         self.premio = premio
+
+
+# dado = DadoEspecial(6, "Premio")
+
+# ---------------------------------------------
+# Polimorfismo + method overriding
+class Dado:
+    def lanzar(self):
+        print("Lanzando dado")
+
+class DadoComun(Dado):
+    def lanzar(self):  # sobrescribe
+        print("Dado común: 1 al 6")
+
+class DadoEspecial(Dado):
+    def lanzar(self):  # sobrescribe
+        print("Dado especial: número + premio")
+
+
+for dado in [DadoComun(), DadoEspecial()]:
+    dado.lanzar()
