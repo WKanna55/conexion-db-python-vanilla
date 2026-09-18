@@ -3,10 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Inventario Management</title>
 </head>
 <body>
-  API inventario
-  
+  <main class="card">
+    <header>
+      <h1>API Inventario</h1>
+    </header>
+    
+    <section>
+      <!-- Subtítulo del recurso -->
+      <h2 class="section-title">Productos</h2>
+
+      <!-- Lista estructurada nativa -->
+      <ul class="endpoint-list">
+        <li>
+          <a href="http://localhost:8000/api/productos" class="btn-endpoint">
+            <code>/api/productos</code>
+            <span class="method get">GET</span>
+          </a>
+        </li>
+
+        <li>
+          <button type="button" onclick="alert('Form create en desarrollo, probar postman')" class="btn-endpoint">
+            <code>/api/productos</code>
+            <span class="method post">POST</span>
+          </button>
+        </li>
+
+        <li>
+          <button type="button" onclick="alert('Form actualizar en desarrollo, probar postman')" class="btn-endpoint">
+            <code>/api/productos/{id}</code>
+            <span class="method put">PUT</span>
+          </button>
+        </li>
+
+        <li>
+          <button type="button" onclick="alert('Form eliminar en desarrollo, probar postman')" class="btn-endpoint">
+            <code>/api/productos/{id}</code>
+            <span class="method delete">DELETE</span>
+          </button>
+        </li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>
